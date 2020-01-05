@@ -1,4 +1,5 @@
 package Ecommerce.entities;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,17 +23,21 @@ public class Order {
     @ManyToOne
     private Client client;
     private double totalAmount;
-    public Long getId() {
+    @OneToOne
+    private Payment payment;
+	public void setClient(Client client) {
+		// TODO Auto-generated method stub
+		this.client=client;
+	}
+	public void setDate(Date date) {
+		// TODO Auto-generated method stub
+		this.date=date;
+	}
+	public Long getId() {
 		return id;
 	}
 	public void setId(Long id) {
 		this.id = id;
-	}
-	public Date getDate() {
-		return date;
-	}
-	public void setDate(Date date) {
-		this.date = date;
 	}
 	public Collection<OrderItem> getOrderItems() {
 		return orderItems;
@@ -40,26 +45,25 @@ public class Order {
 	public void setOrderItems(Collection<OrderItem> orderItems) {
 		this.orderItems = orderItems;
 	}
-	public Client getClient() {
-		return client;
-	}
-	public void setClient(Client client) {
-		this.client = client;
-	}
-	public double getTotalAmount() {
-		return totalAmount;
-	}
-	public void setTotalAmount(double totalAmount) {
-		this.totalAmount = totalAmount;
-	}
 	public Payment getPayment() {
 		return payment;
 	}
 	public void setPayment(Payment payment) {
 		this.payment = payment;
 	}
-	@OneToOne
-    private Payment payment;
+	public Date getDate() {
+		return date;
+	}
+	public Client getClient() {
+		return client;
+	}
+	public double getTotalAmount() {
+		return totalAmount;
+	}
+	public void setTotalAmount(double total) {
+		// TODO Auto-generated method stub
+		this.totalAmount=total;
+	}
 
 
 }

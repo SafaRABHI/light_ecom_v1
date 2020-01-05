@@ -1,4 +1,5 @@
 package Ecommerce.entities;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,7 +18,20 @@ public class OrderItem {
     private Long id;
     @ManyToOne
     private Product product;
-    public Long getId() {
+    private int quantity;
+    private double price;
+    @ManyToOne
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private Order order;
+	public void setOrder(Order order) {
+		// TODO Auto-generated method stub
+		this.order=order;
+	}
+	public void setProduct(Product product) {
+		// TODO Auto-generated method stub
+		this.product=product;
+	}
+	public Long getId() {
 		return id;
 	}
 	public void setId(Long id) {
@@ -26,30 +40,21 @@ public class OrderItem {
 	public Product getProduct() {
 		return product;
 	}
-	public void setProduct(Product product) {
-		this.product = product;
-	}
 	public int getQuantity() {
 		return quantity;
-	}
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
 	}
 	public double getPrice() {
 		return price;
 	}
-	public void setPrice(double price) {
-		this.price = price;
-	}
 	public Order getOrder() {
 		return order;
 	}
-	public void setOrder(Order order) {
-		this.order = order;
+	public void setPrice(double currentPrice) {
+		// TODO Auto-generated method stub
+		this.price=currentPrice;
 	}
-	private int quantity;
-    private double price;
-    @ManyToOne
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    private Order order;
+	public void setQuantity(int quantity) {
+		// TODO Auto-generated method stub
+		this.quantity=quantity;
+	}
 }

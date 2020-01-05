@@ -82,4 +82,27 @@ public class Product implements Serializable {
 	}
 	@ManyToOne
     private  Category category;
+	@Override
+	public String toString() {
+		return "Product [id=" + id + ", name=" + name + ", description=" + description + ", currentPrice="
+				+ currentPrice + ", promotion=" + promotion + ", selected=" + selected + ", available=" + available
+				+ ", photoName=" + photoName + ", quantity=" + quantity + ", category=" + category + "]";
+	}
+	public Product(Long id, String name, String description, double currentPrice, boolean promotion, boolean selected,
+			boolean available, String photoName, int quantity, Category category) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.description = description;
+		this.currentPrice = currentPrice;
+		this.promotion = promotion;
+		this.selected = selected;
+		this.available = available;
+		this.photoName = photoName;
+		this.quantity = quantity;
+		this.category = category;
+	}
+	public Product() {
+		super();
+	}
 }

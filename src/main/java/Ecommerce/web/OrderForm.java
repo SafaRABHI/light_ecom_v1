@@ -1,27 +1,25 @@
 package Ecommerce.web;
-
 import lombok.Data;
+
 
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import Ecommerce.entities.Client;
 @Data
 public class OrderForm {
-    public Client getClient() {
-		return client;
-	}
-	public void setClient(Client client) {
-		this.client = client;
+    private Client client=new Client();
+    private List<OrderProduct> products=new ArrayList<>();
+	public Client getClient() {
+		// TODO Auto-generated method stub
+		return this.client;
 	}
 	public List<OrderProduct> getProducts() {
-		return products;
+		// TODO Auto-generated method stub
+		return this.products;
 	}
-	public void setProducts(List<OrderProduct> products) {
-		this.products = products;
-	}
-	private Client client=new Client();
-    private List<OrderProduct> products=new ArrayList<>();
 }
 @Data
 class OrderProduct{
@@ -29,11 +27,11 @@ class OrderProduct{
     private int quantity;
 	public Long getId() {
 		// TODO Auto-generated method stub
-		return id;
+		return this.id;
 	}
 	public int getQuantity() {
 		// TODO Auto-generated method stub
-		return quantity;
+		return this.quantity;
 	}
 
 }
